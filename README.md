@@ -60,8 +60,18 @@ PORT=3000
 npm run dev
 # ou
 yarn dev
+
+# ou 
+npm run build # gera o buid em js
+
+&&
+
+npm run start # roda a aplicação builder
 ```
 - A API estará disponível em: http://localhost:3000/paypal
+
+
+![PAYPAL](./assets/images/paypal.png)
 
 
 ### 5. Documentação da API:
