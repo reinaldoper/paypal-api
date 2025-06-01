@@ -4,6 +4,23 @@ import * as paypal from '@paypal/checkout-server-sdk';
 import { createOrderSchema } from '../schemas/createOrderSchema';
 
 
+/**
+ * Creates a PayPal order based on the request body data.
+ * 
+ * Validates the input data using a predefined schema. If the validation fails, 
+ * it responds with a 400 status code and an error message. If the validation 
+ * succeeds, a PayPal order is created with the provided value, currency code, 
+ * description, invoice ID, and items. The function then sends a request to 
+ * PayPal's API to create an order with intent to capture payment.
+ * 
+ * If the order creation is successful, it responds with a 201 status code, 
+ * including the order ID, status, and an approval URL. If the order creation 
+ * fails, it responds with a 500 status code and an error message.
+ * 
+ * @param req - The Express request object containing the order details in the body.
+ * @param res - The Express response object used to send back the response.
+ */
+
 export const createOrder = async (req: Request, res: Response) => {
   const parseResult = createOrderSchema.safeParse(req.body);
 

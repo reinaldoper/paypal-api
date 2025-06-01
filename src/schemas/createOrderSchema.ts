@@ -1,5 +1,11 @@
 import { z } from 'zod';
 
+/**
+ * Schema for creating an order.
+ * 
+ * This schema validates the structure of an order creation request,
+ * ensuring that all required fields are present and correctly formatted.
+ */
 export const createOrderSchema = z.object({
   value: z.union([z.string(), z.number()])
     .refine((val) => !isNaN(Number(val)) && Number(val) > 0, {
